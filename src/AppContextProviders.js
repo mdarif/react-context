@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import { ThemeContext } from './Context/ThemeContext'
+import { ContextProviders } from './Context/ContextProviders'
+// import { ThemeContext } from './Context/ThemeContext'
 import FunctionContext from './FunctionContext'
 
-function App () {
+function AppContextProviders () {
   /**
    * Updating data passed via context:
    * Often, you’ll want the context to change over time. To update context,
@@ -30,14 +31,14 @@ function App () {
   return (
     <>
       {/* Context is useful because you can provide other, dynamic values from your components: */}
-      <ThemeContext.Provider value={darkTheme}>
+      <ContextProviders darkTheme={darkTheme}>
         <button onClick={toggleTheme}>Toggle Theme</button>
         <FunctionContext />
-      </ThemeContext.Provider>
+      </ContextProviders>
       {/* Now the FunctionContext component and any components inside it, no matter how deep, will “see” the passed context values. If the passed context values change, 
       React will re-render the components reading the context as well. */}
     </>
   )
 }
 
-export default App
+export default AppContextProviders
